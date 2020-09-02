@@ -4,20 +4,7 @@
 #include <string>
 #include <conio.h>
 #include <limits>
-
-int getintfromuser() {
-    int integer;
-    std::cin >> integer;
-    while (std::cin.fail()) {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max()), '\n';
-        system("cls");
-        std::cout << "That, my friend, is not a number...\n";
-        std::cin >> integer;
-    }
-    return integer;
-}
-
+#include <Windows.h>
 
 void task1()
 {
@@ -147,9 +134,39 @@ void task3()
     _getch();
 }
 
-void task4() 
+int task4() 
 {
+    system("cls");
+    int answer = 0;
+    while (true) {
+        std::cout << "Out of the 3, what is your favorite?\n"
+            << "1. Coffee \n2. Tea \n3. Coca Cola \n\n"
+            << "Please make your choice with 1, 2, or 3 : ";
 
+        std::cin >> answer;
+
+        if (answer == 1)
+        {
+            std::cout << "Coffee is delicious!";
+            return 0;
+        }
+        else if (answer == 2)
+        {
+            std::cout << "Tea gives you peace of mind";
+            return 0;
+        }
+        else if (answer == 3)
+        {
+            std::cout << "Coke will give you a white smile :)";
+            return 0;
+        }
+        else {
+            std::cout << "That is not a valid option from the list";
+            std::cout << "\n\nPress any button to try again...";
+
+            _getch();
+        }
+    }
 }
 
 void task5() 
@@ -165,6 +182,8 @@ int main()
         bool complete4 = false;
         bool complete5 = false;
 
+        int choice;
+
 
     start:
         system("cls");
@@ -179,7 +198,7 @@ int main()
             _getch();
         }
         else {
-            int choice = getintfromuser();
+            std::cin >> choice;
             std::cin.ignore();
             if (choice == 1) {
                 task1();
