@@ -1,4 +1,4 @@
-//This code was done in cooperation of Sten Rune Lyngmo, Erik Holst, Mathias Fredriksen and Adrian Drevland.
+//This code was done in cooperation with Sten Rune Lyngmo, Erik Holst, Mathias Fredriksen and Adrian Drevland.
 
 #include <iostream>
 #include <string>
@@ -70,7 +70,6 @@ void task2()
     char coffee{0};
     int age{0};
    
-
     //Store name
     std::cout << "What is your name sir?  -";
     std::getline(std::cin, name);
@@ -105,8 +104,6 @@ void task2()
     system("pause");
 
 }
-
-
 
 void task3() 
 {
