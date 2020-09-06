@@ -55,7 +55,7 @@ void task1()
         << "|Birthday |" << birthYear << "\n"
         << "--------------------" << std::endl;
 
-    std::cout << "\n\nPress any key to return to the main menu..." << std::endl;
+    std::cout << "\n\nReturning to Main Menu..." << std::endl;
     system("pause");
 
 }
@@ -85,7 +85,7 @@ void task2()
     std::cin.ignore();
 
         //Solve
-        if (coffee == 'Y') 
+        if (coffee == 'Y' || coffee == 'y') 
         {
             answer = "It seems you like coffee!";
         }
@@ -101,7 +101,7 @@ void task2()
               << "You are " << age << " years old" << "\n\n"
               << answer << "\n\n\n";
 
-    std::cout << "Press any key to return to the main menu..." << std::endl;
+    std::cout << "Returning to Main Menu . . ." << std::endl;
     system("pause");
 
 }
@@ -130,15 +130,15 @@ void task3()
         std::cout << "You are REALLY old\n\n";
     }
 
-    std::cout << "\n\nPress any key to return to the main menu..." << std::endl;
+    std::cout << "\n\nReturning to Main Menu . . ." << std::endl;
     system("pause");
 }
 
 int task4() 
 {
-    system("cls");
     int answer = 0;
     while (true) {
+        system("cls");
         std::cout << "Out of the 3, what is your favorite?\n"
             << "1. Coffee \n2. Tea \n3. Coca Cola \n\n"
             << "Please make your choice with 1, 2, or 3 : ";
@@ -151,7 +151,7 @@ int task4()
         if (answer == 1)
         {
             std::cout << "Coffee is delicious!";
-            std::cout << "\n\nPress any key to return to the main menu..." << std::endl;
+            std::cout << "\n\nReturning to Main Menu . . ." << std::endl;
 
             system("pause");
             return 0;
@@ -159,24 +159,22 @@ int task4()
         else if (answer == 2)
         {
             std::cout << "Tea gives you peace of mind";
-            std::cout << "\n\nPress any key to return to the main menu..." << std::endl;
+            std::cout << "\n\nReturning to Main Menu . . ." << std::endl;
 
             system("pause");
-
             return 0;
         }
         else if (answer == 3)
         {
             std::cout << "Coke will give you a white smile :)";
-            std::cout << "\n\nPress any key to return to the main menu..." << std::endl;
+            std::cout << "\n\nReturning to Main Menu . . ." << std::endl;
 
             system("pause");
-
             return 0;
         }
         else {
-            std::cout << "That is not a valid option from the list";
-            std::cout << "\n\nPress any key to return to the main menu..." << std::endl;
+            std::cout << "That is not a valid option from the list\n\n";
+            std::cout << "Please try again" << std::endl;
 
             system("pause");
         }
@@ -187,8 +185,8 @@ void task5()
 {
     system("cls");
 
-    char design[11][33] = {
-        "     1   2   3   4   5   6     \n",
+    char pattern[11][33] = {
+        "      1   2   3   4   5   6    \n",
         "    --- --- --- --- --- ---    \n",
         "A  | * | * | * | * | * | * |  A\n",
         "    --- --- --- --- --- ---    \n",
@@ -205,68 +203,53 @@ void task5()
     {
         for (int j = 0; j < 33; j++) 
         {
-            if (design[i][j] == '*') {
+            if (pattern[i][j] == '*') {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-                std::cout << design[i][j];
+                std::cout << pattern[i][j];
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
             }
             else 
             {
-                std::cout << design[i][j];
+                std::cout << pattern[i][j];
             }
         }
     }
-
-    std::cout << "\n\nPress any key to return to the main menu..." << std::endl;
-    _getch();
-
+    std::cout << "\n\nReturning to Main Menu . . ." << std::endl;
+    system("pause");
 }
 
 int main()
 {
-        bool complete1 = false;
-        bool complete2 = false;
-        bool complete3 = false;
-        bool complete4 = false;
-        bool complete5 = false;
-
         int choice;
-
 
     start:
         system("cls");
+        std::cout << "Main Menu \n\n";
         std::cout << "Weekly 1 assignment, by Edvard.\n";
         std::cout << "There are 5 tasks in this program.\n";
         std::cout << "To choose a task, type a number between 1 and 5, then press enter.\n";
 
     choice:
-        if (complete1 && complete2 && complete3 && complete4 && complete5) {
-            system("cls");
-            std::cout << "You are done!\n\n\n\n Now go away.";
-            _getch();
-        }
-        else {
             std::cin >> choice;
             std::cin.ignore();
             if (choice == 1) {
                 task1();
-                complete1 = true;
             }
-            else if (choice == 2) {
+            else if (choice == 2) 
+            {
                 task2();
-                complete2 = true;
             }
-            else if (choice == 3) {
+            else if (choice == 3) 
+            {
                 task3();
-                complete3 = true;
             }
-            else if (choice == 4) {
+            else if (choice == 4) 
+            {
                 task4();
-                complete4 = true;
             }
-            else if (choice == 5) {
+            else if (choice == 5) 
+            {
                 task5();
-                complete5 = true;
             }
             else {
                 system("cls");
@@ -275,7 +258,6 @@ int main()
                 goto choice;
             }
             goto start;
-        }
 }
 
 
